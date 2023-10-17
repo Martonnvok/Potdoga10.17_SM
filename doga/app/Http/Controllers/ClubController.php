@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\clubs;
-use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class ClubController extends Controller
 {
     //GET
     public function index()
@@ -36,6 +35,7 @@ class TaskController extends Controller
         $club->location = $request->location;
         $club->max_number = $request->max_number;
         $club->save();
+        return redirect('/clubs/list');
     }
 
     public function update(Request $request, $id)
@@ -46,22 +46,23 @@ class TaskController extends Controller
         $club->location = $request->location;
         $club->max_number = $request->max_number;
         $club->save();
+        return redirect('/clubs/list');
     }
 
     public function newView(){
         $club = clubs::all();
-        return view('club.new', ['clubs' => $club]);
+        return view('clubs.new', ['clubs' => $club]);
     }
 
-    /*public function editView($id){
+    public function editView($id){
         $club = clubs::all();
-        $task = Task::find($id);
-        return view('task.edit', ['clubs' => $club, 'task' =>$task]);
-    }*/
+        $task = clubs::find($id);
+        return view('clubs.edit', ['clubs' => $club, 'clubs' =>$task]);
+    }
 
     public function listView(){
         $club = clubs::all();
-        return view('club.list', ['clubs' => $club]);
+        return view('clubs.list', ['clubs' => $club]);
     }
 
     
