@@ -1,4 +1,4 @@
-<form action="/api/tasks/{{$task->id}}" method = "post">
+<form action="/api/clubs/{{$club->id}}" method = "post">
     {{csrf_field()}}
     {{method_field('PUT')}}
     <input type="text" name="title" placeholder="Title">

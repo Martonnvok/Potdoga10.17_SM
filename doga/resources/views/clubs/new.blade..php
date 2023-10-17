@@ -1,4 +1,4 @@
-<form action="/api/tasks" method = "post">
+<form action="/api/clubs" method = "post">
     {{csrf_field()}}
     <input type="text" name="title" placeholder="Title">
     <input type="text" name="description" placeholder="Description">
